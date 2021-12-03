@@ -32,6 +32,7 @@ const NavRoutes = ({ login, signup }) => {
         {/* <PrivateRoute path="/companies/:handle" element={<CompanyDetail />} /> */}
         {/* <PrivateRoute path="/profile" element={<ProfileForm />} /> */}
         {/* <Navigate to="/" /> */}
+        <Route path="/" />
       </Routes>
     </div>
   );
