@@ -94,24 +94,26 @@ function App() {
 
 
   return (
-    // <div className="App">
-    //   <BrowserRouter>
-    //     <UserContext.Provider>
-    //       <div className="App">
-    //         <Navigation />
-    //       </div>
-    //     </UserContext.Provider>
-    //   </BrowserRouter>
-    // </div>
-    <BrowserRouter>
-      <UserContext.Provider
-        value={{ currentUser, setCurrentUser, hasAppliedToJob, applyToJob }}>
-        <div className="App">
-          <Navigation logout={logout} />
-          <NavRoutes login={login} signup={signup} />
-        </div>
-      </UserContext.Provider>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <UserContext.Provider>
+          <div className="App">
+            {/* <Navigation /> */}
+            <Navigation logout={logout} />
+            <NavRoutes login={login} signup={signup} />
+          </div>
+        </UserContext.Provider>
+      </BrowserRouter>
+    </div>
+    // <BrowserRouter>
+    //   <UserContext.Provider
+    //     value={{ currentUser, setCurrentUser, hasAppliedToJob, applyToJob }}>
+    //     <div className="App">
+    //       <Navigation logout={logout} />
+    //       <NavRoutes login={login} signup={signup} />
+    //     </div>
+    //   </UserContext.Provider>
+    // </BrowserRouter>
   );
 }
 

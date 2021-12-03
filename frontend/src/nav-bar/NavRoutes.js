@@ -1,5 +1,5 @@
 // import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import Homepage from "../homepage/Homepage";
@@ -11,13 +11,6 @@ import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
 // import PrivateRoute from "./PrivateRoute";
 
-/** Site-wide routes.
- *
- * Parts of site should only be visitable when logged in. Those routes are
- * wrapped by <PrivateRoute>, which is an authorization component.
- *
- * Visiting a non-existant route redirects to the homepage.
- */
 
 const NavRoutes = ({ login, signup }) => {
 
