@@ -1,9 +1,9 @@
-// import React, { useContext } from "react";
+import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 // import { Route, Navigate, Outlet } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import UserContext from "../auth/UserContext";
+import UserContext from "../auth/UserContext";
 
 /** "Higher-Order Component" for private routes.
  *
@@ -26,9 +26,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //     );
 // }
 
-const PrivateRoute = () => {
-    const auth = null;
-    return auth ? <Outlet /> : <Navigate to="/login" />;
+const PrivateRoute = ({ exact, path, children }) => {
+    const currentUser = useContext(UserContext);
+    return currentUser ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;
