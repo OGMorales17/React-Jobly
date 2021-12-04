@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-// import { Navigate, Outlet } from "react-router-dom";
 import { Route, Navigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import UserContext from "../auth/UserContext";
 
@@ -13,7 +11,7 @@ import UserContext from "../auth/UserContext";
  */
 
 const PrivateRoute = ({ exact, path, children }) => {
-    const currentUser = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     if (!currentUser) {
         return <Navigate to="/login" />;
@@ -26,9 +24,5 @@ const PrivateRoute = ({ exact, path, children }) => {
     );
 }
 
-// const PrivateRoute = ({ exact, path, children }) => {
-//     const currentUser = useContext(UserContext);
-//     return currentUser ? <Outlet /> : <Navigate to="/login" />;
-// }
 
 export default PrivateRoute;

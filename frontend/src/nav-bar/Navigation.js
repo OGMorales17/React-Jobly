@@ -6,7 +6,10 @@ import UserContext from "../auth/UserContext";
 import "./NavBar.css";
 
 function Navigation({ logout }) {
-    const currentUser = useContext(UserContext)
+    console.log('Im users context', UserContext)
+    const { currentUser } = useContext(UserContext)
+    console.log(currentUser)
+
 
     const loginUser = () => {
         return (
@@ -62,13 +65,8 @@ function Navigation({ logout }) {
                     </li>
                 </ul>
                 <div class="ms-auto order-0">
-                    <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        {currentUser ? loginUser() : logoutUser()}
-                    </div>
+                    {/* {currentUser ? logoutUser() : loginUser()} */}
+                    {currentUser ? loginUser() : logoutUser()}
                 </div>
             </div>
         </nav>
@@ -76,3 +74,4 @@ function Navigation({ logout }) {
 }
 
 export default Navigation;
+
