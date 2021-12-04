@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import UserContext from "../auth/UserContext";
 
@@ -10,18 +10,10 @@ import UserContext from "../auth/UserContext";
  * route if so. If no user is present, redirects to login form.
  */
 
-const PrivateRoute = ({ exact, path, children }) => {
+const PrivateRoute = ({ children }) => {
     const { currentUser } = useContext(UserContext);
 
-    if (!currentUser) {
-        return <Navigate to="/login" />;
-    }
-
-    return (
-        <Route exact={exact} path={path}>
-            {children}
-        </Route>
-    );
+    return currentUser ? children : <Navigate to="/login" />;
 }
 
 
