@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from "../api";
 import JobCardList from "../jobs/JobCardList";
-import LoadingSpinner from "../utilities/Loading";
+import Loading from "../utilities/Loading";
 
 /** Company Detail page.
  *
@@ -27,7 +27,7 @@ function CompanyDetail() {
     getCompany();
   }, [handle]);
 
-  if (!company) return <LoadingSpinner />;
+  if (!company) return <Loading />;
 
   return (
     <div className="CompanyDetail col-md-8 offset-md-2">

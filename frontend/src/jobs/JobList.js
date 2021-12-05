@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Search from "../utilities/Search";
 import JoblyApi from "../api";
 import JobCardList from "./JobCardList";
-import LoadingSpinner from "../utilities/Loading";
+import Loading from "../utilities/Loading";
 
 /** Show page with list of jobs.
  *
@@ -30,7 +30,7 @@ function JobList() {
     setJobs(jobs);
   }
 
-  if (!jobs) return <LoadingSpinner />;
+  if (!jobs) return <Loading />;
 
   return (
     <div className="JobList col-md-8 offset-md-2">

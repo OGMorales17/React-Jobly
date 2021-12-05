@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,6 +10,7 @@ import LoginForm from "../auth/LoginForm";
 import ProfileForm from "../profiles/ProfileForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
+import Loading from "../utilities/Loading";
 
 
 const NavRoutes = ({ login, signup }) => {
@@ -17,7 +18,7 @@ const NavRoutes = ({ login, signup }) => {
   return (
     <div className="pt-5">
       <Routes>
-
+        <Route path='*' element={<Loading />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/signup" element={<SignupForm signup={signup} />} />
@@ -26,6 +27,7 @@ const NavRoutes = ({ login, signup }) => {
         <Route path="/jobs" element={<PrivateRoute><JobList /></PrivateRoute>} />
         <Route path="/companies/:handle" element={<PrivateRoute><CompanyDetail /></PrivateRoute>} />
         <Route path="/profile" element={<PrivateRoute><ProfileForm /></PrivateRoute>} />
+
         <Route path="/" />
 
       </Routes>

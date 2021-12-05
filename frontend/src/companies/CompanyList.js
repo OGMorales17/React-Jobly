@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchForm from "../utilities/Search";
 import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
-import LoadingSpinner from "../utilities/Loading";
+import Loading from "../utilities/Loading";
 
 /** Show page with list of companies.
  *
@@ -30,7 +30,7 @@ function CompanyList() {
     setCompanies(companies);
   }
 
-  if (!companies) return <LoadingSpinner />;
+  if (!companies) return <Loading />;
 
   return (
     <div className="CompanyList col-md-8 offset-md-2">
