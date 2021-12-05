@@ -1,4 +1,6 @@
 import axios from "axios";
+import Loading from "./utilities/Loading";
+
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -21,14 +23,14 @@ class JoblyApi {
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${JoblyApi.token}` };
-    const params = (method === "get")
-      ? data
-      : {};
+    const params = (method === "get") ? data : {};
 
     try {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       // add a message here
+      if (err) return <Loading />;
+
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
       throw Array.isArray(message) ? message : [message];

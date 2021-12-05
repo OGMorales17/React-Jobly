@@ -10,7 +10,7 @@ import LoginForm from "../auth/LoginForm";
 import ProfileForm from "../profiles/ProfileForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
-import Loading from "../utilities/Loading";
+import NotFound from "../utilities/NotFound";
 
 
 const NavRoutes = ({ login, signup }) => {
@@ -18,7 +18,7 @@ const NavRoutes = ({ login, signup }) => {
   return (
     <div className="pt-5">
       <Routes>
-        <Route path='*' element={<Loading />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/signup" element={<SignupForm signup={signup} />} />

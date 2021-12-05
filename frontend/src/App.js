@@ -91,8 +91,6 @@ function App() {
 
   if (!infoLoaded) return <Loading />;
 
-
-
   return (
     <BrowserRouter>
       <UserContext.Provider
